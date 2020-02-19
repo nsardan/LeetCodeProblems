@@ -16,7 +16,7 @@ public class LevelOrderTraversalIterative {
         finalAnswe.stream().forEach(levels -> System.out.println(levels));
     }
 
-    private static List<List<Integer>> printLevelOrder(TreeNode root) {
+    public static List<List<Integer>> printLevelOrder(TreeNode root) {
         List<List<Integer>> finalAnswer = new ArrayList<>();
         if(root == null) return finalAnswer;
         Queue<TreeNode> queue = new LinkedList<>();
