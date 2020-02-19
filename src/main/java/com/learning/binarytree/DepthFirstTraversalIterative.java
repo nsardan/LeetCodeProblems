@@ -2,7 +2,7 @@ package com.learning.binarytree;
 
 import java.util.Stack;
 
-import static com.learning.binarytree.DepthFirstTraversalRecursive.createBinaryTree;
+import static com.learning.binarytree.TreeNode.createBinaryTree;
 
 public class DepthFirstTraversalIterative {
 
