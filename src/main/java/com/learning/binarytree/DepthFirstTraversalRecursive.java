@@ -27,7 +27,7 @@ public class DepthFirstTraversalRecursive {
 
 
     public static void main(String[] args) {
-        TreeNode root  = createBinaryTree();
+        TreeNode root  = TreeNode.createBinaryTree();
         System.out.println("-----------PreOrder--------------");
         preOrder(root);
         System.out.println();
@@ -39,12 +39,5 @@ public class DepthFirstTraversalRecursive {
         System.out.println();
     }
 
-    public static TreeNode createBinaryTree(){
-        TreeNode root = new TreeNode(1);
-        root.left = new TreeNode(2);
-        root.right = new TreeNode(3);
-        root.left.left  = new TreeNode(4);
-        root.left.right = new TreeNode(5);
-        return root;
-    }
+
 }

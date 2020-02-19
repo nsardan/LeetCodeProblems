@@ -14,7 +14,7 @@ public class LevelOrderTraversalRecursive {
         root.left.left  = new TreeNode(4);
         root.left.right = new TreeNode(5);
         List<List<Integer>> finalAnswe = printLevelOrder(root);
-        finalAnswe.stream().forEach(levels -> System.out.println(levels));
+        finalAnswe.stream().forEach(System.out::println);
     }
 
     private static List<List<Integer>> printLevelOrder(TreeNode root) {
@@ -25,7 +25,7 @@ public class LevelOrderTraversalRecursive {
 
     private static void printLevelOrderRec(TreeNode node, List<List<Integer>> finalAnswe, int level){
         if(node == null) return;
-        List<Integer> levelArr = null;
+        List<Integer> levelArr;
         if(finalAnswe.size() == level){
             levelArr = new ArrayList<>();
             finalAnswe.add(levelArr);
@@ -36,17 +36,6 @@ public class LevelOrderTraversalRecursive {
         levelArr.add(node.val);
         printLevelOrderRec(node.left, finalAnswe, level+1);
         printLevelOrderRec(node.right, finalAnswe, level+1);
-    }
-
-}
-class TreeNode{
-    int val;
-    TreeNode left;
-    TreeNode right;
-    TreeNode(int val){
-        this.val = val;
-        this.left = null;
-        this.right = null;
     }
 
 }
