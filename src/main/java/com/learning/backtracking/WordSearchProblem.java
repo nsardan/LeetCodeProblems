@@ -1,4 +1,4 @@
-package com.learning;
+package com.learning.backtracking;
 
 public class WordSearchProblem {
     public static void main(String[] args) {

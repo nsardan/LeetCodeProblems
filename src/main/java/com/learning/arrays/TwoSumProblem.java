@@ -1,4 +1,4 @@
-package com.learning;
+package com.learning.arrays;
 
 public class TwoSumProblem {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package com.learning;
+package com.learning.string;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
