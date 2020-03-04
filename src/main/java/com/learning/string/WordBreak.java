@@ -10,16 +10,17 @@ public class WordBreak {
         WordBreak wordBreak = new WordBreak();
        assertEquals(true, wordBreak.wordBreak("leetcode", Arrays.asList("leet", "code")));
        assertEquals(false, wordBreak.wordBreak("catsandog", Arrays.asList("cats", "dog", "sand", "and", "cat")));
+       assertEquals(false, wordBreak.wordBreak("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab", Arrays.asList("a","aa","aaa","aaaa","aaaaa","aaaaaa","aaaaaaa","aaaaaaaa","aaaaaaaaa","aaaaaaaaaa")));
     }
 
     public boolean wordBreak(String s, List<String> wordDict) {
-       boolean visited[] = new boolean[s.length()+1];
+       Boolean visited[] = new Boolean[s.length()+1];
        return wordBreak(s, 0, wordDict, visited);
     }
 
-    private boolean wordBreak(String s, int start, List<String> wordDict, boolean visited[]) {
+    private boolean wordBreak(String s, int start, List<String> wordDict, Boolean visited[]) {
         if (start == s.length()) return true;
-        if (visited[start] == false) {
+        if (visited[start] == null) {
             boolean result = false;
             String current = s.substring(start);
             for (String word : wordDict) {
