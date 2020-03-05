@@ -5,45 +5,47 @@ import java.util.EmptyStackException;
 import java.util.List;
 import java.util.Stack;
 
-public class MinStack {
-    Stack<Integer> stack;
-    int min;
+class MinStack {
+
+    Element top;
 
     /** initialize your data structure here. */
     public MinStack() {
-        stack = new Stack<>();
+
     }
 
     public void push(int x) {
-        if(stack.isEmpty()){
-            min = x;
-            stack.push(x);
-            return;
-        }
-        if(x < min){
-            stack.push(2*x - min);
-            min = x;
+        if(top == null){
+            top = new Element(x, x);
         }else{
-            stack.push(x);
+            Element e = new Element(x, Math.min(x,top.min));
+            e.next = top;
+            top = e;
         }
+
     }
 
     public void pop() {
-        if(!stack.isEmpty()){
-            Integer integer = stack.pop();
-            if(integer < min){
-                min = 2*min - integer;
-            }
-        }
+        if(top == null)
+            return;
+        Element temp = top.next;
+        top.next = null;
+        top = temp;
+
     }
 
     public int top() {
-        return stack.peek();
+        if(top == null)
+            return -1;
+        return top.val;
     }
 
     public int getMin() {
-        return min;
+        if(top == null)
+            return -1;
+        return top.min;
     }
+
     public static void main(String[] args) {
         MinStack minStack = new MinStack();
         minStack.push(-2);
@@ -56,6 +58,28 @@ public class MinStack {
         min = minStack.getMin();
         System.out.println(min);
     }
-
-
 }
+
+class Element{
+    int min;
+    int val;
+    Element next;
+
+    public Element(int val, int min){
+        this.val = val;
+        this.min = min;
+    }
+}
+
+    /**
+     * Your MinStack object will be instantiated and called as such:
+     * MinStack obj = new MinStack();
+     * obj.push(x);
+     * obj.pop();
+     * int param_3 = obj.top();
+     * int param_4 = obj.getMin();
+     */
+
+
+
+
