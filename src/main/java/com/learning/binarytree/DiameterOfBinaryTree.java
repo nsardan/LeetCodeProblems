@@ -3,22 +3,24 @@ package com.learning.binarytree;
 public class DiameterOfBinaryTree {
 
     public static void main(String[] args) {
-        TreeNode root = TreeNode.createBinaryTree();
-        int finalAnswer = diameterOfBinaryTree(root);
+        //TreeNode root = TreeNode.createBinaryTree();
+        TreeNode root = null;
+        DiameterOfBinaryTree main = new DiameterOfBinaryTree();
+        int finalAnswer = main.diameterOfBinaryTree(root);
         System.out.println(finalAnswer);
     }
-    static int diameter;
-    public static int diameterOfBinaryTree(TreeNode root) {
+    int diameter;
+    public int diameterOfBinaryTree(TreeNode root) {
         if(root == null) return 0;
-        depth(root);
-        return diameter-1;
+        maxDepth(root);
+        return diameter;
     }
 
-    public static int depth(TreeNode root){
+    private int maxDepth(TreeNode root) {
         if(root == null) return 0;
-        int left_depth = depth(root.left);
-        int right_depth = depth(root.right);
-        diameter = Math.max(left_depth+right_depth+1, diameter);
-        return 1 + Math.max(left_depth, right_depth);
+        int left = maxDepth(root.left);
+        int right = maxDepth(root.right);
+        diameter = Math.max(diameter, right + left);
+        return Math.max(left, right) +1;
     }
 }
