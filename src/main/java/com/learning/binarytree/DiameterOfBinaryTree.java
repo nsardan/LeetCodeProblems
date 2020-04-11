@@ -3,8 +3,8 @@ package com.learning.binarytree;
 public class DiameterOfBinaryTree {
 
     public static void main(String[] args) {
-        //TreeNode root = TreeNode.createBinaryTree();
-        TreeNode root = null;
+        TreeNode root = TreeNode.createBinaryTree();
+        //TreeNode root = null;
         DiameterOfBinaryTree main = new DiameterOfBinaryTree();
         int finalAnswer = main.diameterOfBinaryTree(root);
         System.out.println(finalAnswer);
